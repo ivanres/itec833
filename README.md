@@ -17,7 +17,7 @@ BPEL project source files.
 
 ### sampledb
 This is a sample database used by the `SqlLoggerService`
-Place the logs.db databas in `C:\databases`. At the moment the location it is hardcoded in that path.
+Place the `logs.db` database in `C:\databases`. At the moment the location it is hardcoded in that path.
 `C:\databases\logs.db`
 
 ### tomcat7_8082
@@ -35,12 +35,12 @@ Integration
 ## Execution
 Both tomcat servers should be started to test
 
-1. itec833_tomcat_ode\bin\startup.bat
-2. tomcat7_8082\bin\startup.bat
+1. `itec833_tomcat_ode\bin\startup.bat`
+2. `tomcat7_8082\bin\startup.bat`
 3. Until front end is available, use SoapUI to test. 
-   Test entry point to Integration Server is at: http://localhost:8080/ode/processes/WS_Integrator?wsdl
+   Test entry point to Integration Server is at: `http://localhost:8080/ode/processes/WS_Integrator?wsdl`
    
-Perform a service call with a fake credit card number.
+Perform a service call with a fake credit card number. 
 
 Expected results:
 1. The credit card type (Visa, Mastercard, etc)
