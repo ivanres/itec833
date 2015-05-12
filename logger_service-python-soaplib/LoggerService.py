@@ -47,7 +47,7 @@ class LogService(DefinitionBase):
 
 if __name__=='__main__':
     from wsgiref.simple_server import make_server
-    soap_app = Application([LogService], 'tns')
+    soap_app = Application([LogService], 'logger.itec833.ws')
     wsgi_app = wsgi.Application(soap_app)
 
     server = make_server('localhost', 7789, wsgi_app)

@@ -1,2 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions xmlns:wsa="http://schemas.xmlsoap.org/ws/2003/03/addressing" xmlns:tns="tns" xmlns:plink="http://schemas.xmlsoap.org/ws/2003/05/partner-link/" xmlns:xop="http://www.w3.org/2004/08/xop/include" xmlns:senc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:s12env="http://www.w3.org/2003/05/soap-envelope/" xmlns:s12enc="http://www.w3.org/2003/05/soap-encoding/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:senv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="tns" name="Application"><wsdl:types><xs:schema targetNamespace="tns" elementFormDefault="qualified"><xs:import namespace="http://www.w3.org/2001/XMLSchema"/><xs:complexType name="add_log"><xs:sequence><xs:element name="cc_number" type="xs:string" minOccurs="0" nillable="true"/><xs:element name="cc_type" type="xs:string" minOccurs="0" nillable="true"/></xs:sequence></xs:complexType><xs:complexType name="add_logResponse"><xs:sequence><xs:element name="add_logResult" type="xs:integer" minOccurs="0" nillable="true"/></xs:sequence></xs:complexType><xs:complexType name="clear_logs"><xs:sequence/></xs:complexType><xs:complexType name="clear_logsResponse"><xs:sequence/></xs:complexType><xs:element name="add_log" type="tns:add_log"/><xs:element name="add_logResponse" type="tns:add_logResponse"/><xs:element name="clear_logs" type="tns:clear_logs"/><xs:element name="clear_logsResponse" type="tns:clear_logsResponse"/></xs:schema></wsdl:types><wsdl:message name="add_log"><wsdl:part name="add_log" element="tns:add_log"/></wsdl:message><wsdl:message name="add_logResponse"><wsdl:part name="add_logResponse" element="tns:add_logResponse"/></wsdl:message><wsdl:message name="clear_logs"><wsdl:part name="clear_logs" element="tns:clear_logs"/></wsdl:message><wsdl:message name="clear_logsResponse"><wsdl:part name="clear_logsResponse" element="tns:clear_logsResponse"/></wsdl:message><wsdl:portType name="Application"><wsdl:operation name="add_log" parameterOrder="add_log"><wsdl:documentation>Adds a book to the database</wsdl:documentation><wsdl:input name="add_log" message="tns:add_log"/><wsdl:output name="add_logResponse" message="tns:add_logResponse"/></wsdl:operation><wsdl:operation name="clear_logs" parameterOrder="clear_logs"><wsdl:documentation>Clears the database</wsdl:documentation><wsdl:input name="clear_logs" message="tns:clear_logs"/><wsdl:output name="clear_logsResponse" message="tns:clear_logsResponse"/></wsdl:operation></wsdl:portType><wsdl:binding name="Application" type="tns:Application"><soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/><wsdl:operation name="add_log"><soap:operation soapAction="add_log" style="document"/><wsdl:input name="add_log"><soap:body use="literal"/></wsdl:input><wsdl:output name="add_logResponse"><soap:body use="literal"/></wsdl:output></wsdl:operation><wsdl:operation name="clear_logs"><soap:operation soapAction="clear_logs" style="document"/><wsdl:input name="clear_logs"><soap:body use="literal"/></wsdl:input><wsdl:output name="clear_logsResponse"><soap:body use="literal"/></wsdl:output></wsdl:operation></wsdl:binding><wsdl:service name="Application"><wsdl:port name="Application" binding="tns:Application"><soap:address location="http://localhost:7789/?wsdl"/></wsdl:port></wsdl:service></wsdl:definitions>
+<wsdl:definitions xmlns:wsa="http://schemas.xmlsoap.org/ws/2003/03/addressing" xmlns:tns="logger.itec833.ws" xmlns:plink="http://schemas.xmlsoap.org/ws/2003/05/partner-link/" xmlns:xop="http://www.w3.org/2004/08/xop/include" xmlns:senc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:s12env="http://www.w3.org/2003/05/soap-envelope/" xmlns:s12enc="http://www.w3.org/2003/05/soap-encoding/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:senv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="logger.itec833.ws" name="Application">
+  <wsdl:types>
+    <xs:schema targetNamespace="logger.itec833.ws" elementFormDefault="qualified">
+      <xs:import namespace="http://www.w3.org/2001/XMLSchema"/>
+      <xs:complexType name="add_log">
+        <xs:sequence>
+          <xs:element name="cc_number" type="xs:string" minOccurs="0" nillable="true"/>
+          <xs:element name="cc_type" type="xs:string" minOccurs="0" nillable="true"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="add_logResponse">
+        <xs:sequence>
+          <xs:element name="add_logResult" type="xs:integer" minOccurs="0" nillable="true"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="clear_logs">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="clear_logsResponse">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:element name="add_log" type="tns:add_log"/>
+      <xs:element name="add_logResponse" type="tns:add_logResponse"/>
+      <xs:element name="clear_logs" type="tns:clear_logs"/>
+      <xs:element name="clear_logsResponse" type="tns:clear_logsResponse"/>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="add_log">
+    <wsdl:part name="add_log" element="tns:add_log"/>
+  </wsdl:message>
+  <wsdl:message name="add_logResponse">
+    <wsdl:part name="add_logResponse" element="tns:add_logResponse"/>
+  </wsdl:message>
+  <wsdl:message name="clear_logs">
+    <wsdl:part name="clear_logs" element="tns:clear_logs"/>
+  </wsdl:message>
+  <wsdl:message name="clear_logsResponse">
+    <wsdl:part name="clear_logsResponse" element="tns:clear_logsResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="Application">
+    <wsdl:operation name="add_log" parameterOrder="add_log">
+      <wsdl:documentation>Adds a book to the database</wsdl:documentation>
+      <wsdl:input name="add_log" message="tns:add_log"/>
+      <wsdl:output name="add_logResponse" message="tns:add_logResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="clear_logs" parameterOrder="clear_logs">
+      <wsdl:documentation>Clears the database</wsdl:documentation>
+      <wsdl:input name="clear_logs" message="tns:clear_logs"/>
+      <wsdl:output name="clear_logsResponse" message="tns:clear_logsResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Application" type="tns:Application">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="add_log">
+      <soap:operation soapAction="add_log" style="document"/>
+      <wsdl:input name="add_log">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="add_logResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="clear_logs">
+      <soap:operation soapAction="clear_logs" style="document"/>
+      <wsdl:input name="clear_logs">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="clear_logsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Application">
+    <wsdl:port name="Application" binding="tns:Application">
+      <soap:address location="http://localhost:7789/?wsdl"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
