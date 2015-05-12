@@ -5,6 +5,8 @@
 itec833_tomcat_ode/webapps/ode/WEB-INF/derby-jpadb
 itec833_tomcat_ode/derby.log
 itec833_tomcat_ode/logs
+itec833_tomcat_ode/temp
+itec833_tomcat_ode/bin/derby.log
 tomcat7_8082/temp
 tomcat7_8082/logs
 tomcat7_8082/work/Catalina/localhost/axis2/SESSIONS.ser
