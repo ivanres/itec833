@@ -2,3 +2,5 @@
 .idea
 .settings
 .project
+itec833_tomcat_ode/webapps/ode/WEB-INF/derby-jpadb
+itec833_tomcat_ode/derby.log
