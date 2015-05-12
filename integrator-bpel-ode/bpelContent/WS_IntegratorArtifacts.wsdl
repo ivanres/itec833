@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://integrator.itec833" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:wsdl="http://ws.cdyne.com/" name="WS_Integrator" targetNamespace="http://integrator.itec833">
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://integrator.itec833" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:wsdl="http://ws.cdyne.com/" xmlns:wsdl1="http://logger.axis" name="WS_Integrator" targetNamespace="http://integrator.itec833">
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
      TYPE DEFINITION - List of types participating in this BPEL process 
@@ -10,7 +10,11 @@
     <plnk:partnerLinkType name="CreditCardPLT">
     <plnk:role name="CreditCardPLRole" portType="wsdl:LuhnCheckerSoap"/>
   </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="SqliteLoggerServicePLT">
+    <plnk:role name="SqliteLoggerServicePLR" portType="wsdl1:SqliteLoggerServicePortType"/>
+  </plnk:partnerLinkType>
     <import location="CDYNECreditCardService.wsdl" namespace="http://ws.cdyne.com/"/>
+    <import location="SqliteLoggerService.wsdl" namespace="http://logger.axis"/>
     <types>
         <schema xmlns="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://integrator.itec833">
 

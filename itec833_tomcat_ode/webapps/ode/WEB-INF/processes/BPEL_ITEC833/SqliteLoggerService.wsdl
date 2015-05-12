@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:ns="http://logger.axis" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://logger.axis">
+    <wsdl:documentation>SqliteLoggerService</wsdl:documentation>
+    <wsdl:types>
+        <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://logger.axis">
+            <xs:element name="addLog">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="cc_number" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="cc_type" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="addLogResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="addLogRequest">
+        <wsdl:part name="parameters" element="ns:addLog"/>
+    </wsdl:message>
+    <wsdl:message name="addLogResponse">
+        <wsdl:part name="parameters" element="ns:addLogResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="SqliteLoggerServicePortType">
+        <wsdl:operation name="addLog">
+            <wsdl:input message="ns:addLogRequest" wsaw:Action="urn:addLog"/>
+            <wsdl:output message="ns:addLogResponse" wsaw:Action="urn:addLogResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="SqliteLoggerServiceSoap11Binding" type="ns:SqliteLoggerServicePortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="addLog">
+            <soap:operation soapAction="urn:addLog" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="SqliteLoggerServiceSoap12Binding" type="ns:SqliteLoggerServicePortType">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="addLog">
+            <soap12:operation soapAction="urn:addLog" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="SqliteLoggerServiceHttpBinding" type="ns:SqliteLoggerServicePortType">
+        <http:binding verb="POST"/>
+        <wsdl:operation name="addLog">
+            <http:operation location="addLog"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="SqliteLoggerService">
+        <wsdl:port name="SqliteLoggerServiceHttpSoap11Endpoint" binding="ns:SqliteLoggerServiceSoap11Binding">
+            <soap:address location="http://localhost:8082/axis2/services/SqliteLoggerService.SqliteLoggerServiceHttpSoap11Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="SqliteLoggerServiceHttpSoap12Endpoint" binding="ns:SqliteLoggerServiceSoap12Binding">
+            <soap12:address location="http://localhost:8082/axis2/services/SqliteLoggerService.SqliteLoggerServiceHttpSoap12Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="SqliteLoggerServiceHttpEndpoint" binding="ns:SqliteLoggerServiceHttpBinding">
+            <http:address location="http://localhost:8082/axis2/services/SqliteLoggerService.SqliteLoggerServiceHttpEndpoint/"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
