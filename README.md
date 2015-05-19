@@ -2,6 +2,23 @@
 
 This is a demonstration of composition of web services using BPEL.
 
+## How to run
+Both tomcat servers should be started to test
+
+1. `itec833_tomcat_ode\bin\startup.bat` BPEL server
+2. `tomcat7_8082\bin\startup.bat` Logger server
+3. Start the python server `C:\Python27\python.exe frontend-python-bottle-suds\server.py`
+4. Access the front end at `http://localhost:8888/`
+5. Optionally, use SoapUI to test. 
+   Test entry point to Integration Server is at: `http://localhost:8080/ode/processes/WS_Integrator?wsdl`
+   
+Perform a service call with a fake credit card number. 
+
+Expected results:
+1. The credit card type (Visa, Mastercard, etc)
+2. A new row written in the sqlite database.
+
+
 ## Structure
 The structure so far is as follows
 
@@ -32,17 +49,5 @@ Python Logger Service. First attempt of the logger service implemented in python
 Integration 
 
 
-## Execution
-Both tomcat servers should be started to test
 
-1. `itec833_tomcat_ode\bin\startup.bat`
-2. `tomcat7_8082\bin\startup.bat`
-3. Until front end is available, use SoapUI to test. 
-   Test entry point to Integration Server is at: `http://localhost:8080/ode/processes/WS_Integrator?wsdl`
-   
-Perform a service call with a fake credit card number. 
-
-Expected results:
-1. The credit card type (Visa, Mastercard, etc)
-2. A new row written in the sqlite database.
 
