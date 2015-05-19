@@ -1,0 +1,17 @@
+body {
+	background-color: whitesmoke;
+}
+
+div.error{
+    color: red
+}
+
+.post{
+    margin-bottom: 20px;
+    padding: 5px;
+    border: solid 1px #ccc;
+}
+
+.hidden{
+    display: none;
+}
