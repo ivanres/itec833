@@ -9,8 +9,12 @@
 <label for="cc_number">Credit Card Number:</label>
 <input type="text" name="cc_number" placeholder="Enter cc number">
 <input type="submit">
+<button id="rest_btn">REST call </button><span id="loader" class="hidden"><img src="/static/loader.gif"></span>
 </form>
 <p>Please <b>NEVER</b> submit a real credit card number to such a service.</p>
+
+
+<div id="rest_response"></div>
 
 <br/><br/><br/><br/>
 <button id="cc_toggle">Toggle sample credit card numbers</button>
@@ -47,5 +51,20 @@ American Express
 <script>
 $("#cc_toggle").click(function(e){
     $("#cc_list").toggle();
-})
+});
+
+$("#rest_btn").click(function(e){
+    $('#loader').show()
+    var nb = $("input[name=cc_number]").val();
+    //console.log(nb);
+    $.get("/validator/" + nb, function(res){
+        console.log(res.type);
+        $('#rest_response').append("<p>" + nb + " is "  + res.type +"</p>" );
+    }).always(function(){
+        $('#loader').hide()
+    })
+    return false;
+});
+
+
 </script>
