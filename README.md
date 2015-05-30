@@ -42,7 +42,7 @@ Private Web Service server.
 This is a tomcat 7 server. It contains the `SqlLoggerService` web service.
 
 ### frontend-python-bottle-suds
-This will be the front end server. Work in progress.
+This is the webpage that is loaded by the user. It displays a form where credit card numbers can be submitted. There is also a button to tests the REST interface.
 
 ### logger_service-python-soaplib (DEPRECATED)
 Python Logger Service. First attempt of the logger service implemented in python. Web service works but Apache ODE does not accept it
@@ -50,4 +50,14 @@ Integration
 
 
 
+##Troubleshoot
+###Tomcat
+The Tomcat servers of this project are stand alone servers. You don't need to install Tomcat on your system, 
+but if you have, make sure that that version is not running. Start the project's Tomcat servers as explained above.
 
+Another common error is not having the environment properly configured. Make sure to have a JDK installed, and JAVA_HOME configured.
+
+1. Right click "Computer" or "My Computer" in the Start Menu and choose "Properties" from the context menu. 
+2. Under the "Advanced" tab, you can define new variables. 
+3. Set the JAVA_HOME variable to point to your JDK's main directory (i.e. C:/path/to/jdkx.x, not the bin directory). 
+4. Additionally, add %JAVA_HOME%\jre\bin to the PATH variable, which will help prevent possible problems with orphaned DLL files across Windows versions. - [Reference](https://www.mulesoft.com/tcat/tomcat-windows)
