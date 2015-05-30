@@ -13,9 +13,10 @@ class BPEL:
 
     def __init__(self):
         client = Client(self.url, location=self.location)
+        #client = Client(self.url) #This won't work. It does not detect the correct service endpoint
 
-        client.options.cache.clear()
-        client.set_options(cache=None)
+        #client.options.cache.clear()
+        #client.set_options(cache=None)
         self.client = client
 
 
